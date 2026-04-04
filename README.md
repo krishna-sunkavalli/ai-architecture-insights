@@ -1,4 +1,4 @@
-# AI Insights
+# AI Architecture Insights
 
 Practitioner perspectives on designing and scaling AI systems that work in production. The focus is on the architectural decisions that actually determine outcomes: context engineering, data readiness, security posture, and operational discipline. Not the hype. Not the happy path. What drives successful enterprise AI adoption and what gets in the way.
 
