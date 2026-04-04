@@ -20,3 +20,6 @@ desktop.ini
 
 # Environment variables
 .env
+
+# Internal reference docs
+WRITING_GUIDE.md
