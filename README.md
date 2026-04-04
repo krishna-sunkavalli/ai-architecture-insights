@@ -1,0 +1,13 @@
+# AI Insights
+
+Practitioner perspectives on designing and scaling AI systems that work in production. The focus is on the architectural decisions that actually determine outcomes: context engineering, data readiness, security posture, and operational discipline. Not the hype. Not the happy path. What drives successful enterprise AI adoption and what gets in the way.
+
+Grounded in hands-on work across Azure AI, cloud architecture, and enterprise-scale implementations.
+
+Krishna Sunkavalli — Sr. Solutions Engineer, Cloud & AI Platforms, Microsoft
+
+---
+
+## Articles
+
+- [Context Engineering: The Architecture Discipline Behind Production AI Systems](articles/context-engineering/context-engineering-production-ai.md)

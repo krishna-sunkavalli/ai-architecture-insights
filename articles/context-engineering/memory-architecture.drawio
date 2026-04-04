@@ -1,0 +1,195 @@
+<mxfile host="app.diagrams.net" modified="2026-03-31T00:00:00.000Z" agent="draw.io" version="24.0.0">
+  <diagram name="Memory Architecture" id="memory-architecture">
+    <mxGraphModel dx="1422" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="890" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Memory Tier Model — Reference Architecture" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="340" y="10" width="500" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ APPLICATION LAYER ═══ -->
+        <mxCell id="app-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=none;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="20" y="55" width="1100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="app-lane-label" value="&lt;font color=&quot;#43A047&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;APPLICATION&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#999&quot; style=&quot;font-size:12px;&quot;&gt;(Runtime)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="63" width="260" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="user-input" value="&lt;b&gt;User Input&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Current Turn&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#EF9A9A;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="60" y="100" width="140" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="mem-mgr" value="&lt;b&gt;Memory Manager&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Retrieval &amp;amp; Injection&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#64B5F6;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="460" y="100" width="180" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-window" value="&lt;b&gt;Context Window&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Assembly&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#90CAF9;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="890" y="100" width="155" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- App arrows — pinned horizontal -->
+        <mxCell id="ea1" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="user-input" target="mem-mgr" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ea2" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="mem-mgr" target="ctx-window" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ MEMORY TIERS LANE ═══ -->
+        <mxCell id="mem-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=none;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="20" y="195" width="1100" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="mem-lane-label" value="&lt;font color=&quot;#7B1FA2&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;MEMORY TIERS&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="203" width="200" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Tier 1: In-Context -->
+        <mxCell id="tier1-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="240" width="245" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="tier1-title" value="&lt;b&gt;In-Context Memory&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#2E7D32;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" y="248" width="195" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="tier1-box" value="&lt;font style=&quot;font-size:11px;&quot;&gt;Active conversation&lt;br&gt;Current task state&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C8E6C9;arcSize=10;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="65" y="278" width="205" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tier1-m1" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Lifetime: &lt;b&gt;Single session&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="332" width="205" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tier1-m2" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Mechanism: &lt;b&gt;Direct inclusion&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="65" y="355" width="205" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Tier 2: External Short-Term -->
+        <mxCell id="tier2-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#90CAF9;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="310" y="240" width="245" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="tier2-title" value="&lt;b&gt;External Short-Term&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#1565C0;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="335" y="248" width="195" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="tier2-box" value="&lt;font style=&quot;font-size:11px;&quot;&gt;Recent interactions&lt;br&gt;Session metadata&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#BBDEFB;arcSize=10;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="330" y="278" width="205" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tier2-m1" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Lifetime: &lt;b&gt;Hours to days&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="330" y="332" width="205" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tier2-m2" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Mechanism: &lt;b&gt;Cache (Redis / Cosmos)&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="330" y="355" width="205" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Tier 3: External Long-Term -->
+        <mxCell id="tier3-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFCC80;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="575" y="240" width="245" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="tier3-title" value="&lt;b&gt;External Long-Term&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#E65100;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="600" y="248" width="195" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="tier3-box" value="&lt;font style=&quot;font-size:11px;&quot;&gt;User preferences, facts,&lt;br&gt;entity-centric knowledge&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFE0B2;arcSize=10;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="595" y="278" width="205" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tier3-m1" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Lifetime: &lt;b&gt;Persistent&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="595" y="332" width="205" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tier3-m2" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Mechanism: &lt;b&gt;Vector store + retrieval&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="595" y="355" width="205" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Tier 4: Episodic -->
+        <mxCell id="tier4-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8BBD0;strokeColor=#F48FB1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="840" y="240" width="245" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="tier4-title" value="&lt;b&gt;Episodic Memory&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#AD1457;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="865" y="248" width="195" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="tier4-box" value="&lt;font style=&quot;font-size:11px;&quot;&gt;What happened, what&lt;br&gt;was decided (events)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F8BBD0;arcSize=10;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="860" y="278" width="205" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tier4-m1" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Lifetime: &lt;b&gt;Persistent&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="860" y="332" width="205" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tier4-m2" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#666&quot;&gt;Mechanism: &lt;b&gt;Compressed summaries&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="860" y="355" width="205" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Memory Manager → Tier 1 (down then left then down) -->
+        <mxCell id="em1" value="" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="mem-mgr" target="tier1-bg" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="190" />
+              <mxPoint x="168" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Memory Manager → Tier 2 -->
+        <mxCell id="em2" value="" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="mem-mgr" target="tier2-bg" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="190" />
+              <mxPoint x="433" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Memory Manager → Tier 3 -->
+        <mxCell id="em3" value="" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="mem-mgr" target="tier3-bg" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="190" />
+              <mxPoint x="698" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Memory Manager → Tier 4 -->
+        <mxCell id="em4" value="" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="mem-mgr" target="tier4-bg" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="190" />
+              <mxPoint x="963" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ═══ COMPARISON LANE ═══ -->
+        <mxCell id="compare-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E0E0E0;arcSize=4;" vertex="1" parent="1">
+          <mxGeometry x="20" y="495" width="1100" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- ── Anti-Pattern Box (red-tinted) ── -->
+        <mxCell id="anti-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#EF9A9A;arcSize=6;dashed=1;dashPattern=4 4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="510" width="490" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="anti-label" value="&lt;font color=&quot;#C62828&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;✕ ANTI-PATTERN&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#888&quot; style=&quot;font-size:12px;&quot;&gt;Context Dumping&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="518" width="320" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="dump-raw" value="&lt;b&gt;Raw Payload&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;5 MB API response&lt;br&gt;Full PDF transcript&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#EF9A9A;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="70" y="553" width="160" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="dump-x" value="&lt;font style=&quot;font-size:26px;&quot; color=&quot;#C62828&quot;&gt;&lt;b&gt;✕&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="250" y="565" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dump-prompt" value="&lt;b&gt;Context Window&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Direct injection&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#E0E0E0;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="310" y="553" width="145" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- ── Correct Pattern Box (green-tinted) ── -->
+        <mxCell id="correct-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#66BB6A;arcSize=6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="510" width="540" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="correct-label" value="&lt;font color=&quot;#2E7D32&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;✓ CORRECT PATTERN&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="580" y="518" width="220" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="handle-ref" value="&lt;b&gt;Handle / Reference&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Lightweight pointer&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="590" y="558" width="170" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="on-demand" value="&lt;b&gt;Retrieve On-Demand&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Only what current turn needs&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="820" y="558" width="195" height="55" as="geometry" />
+        </mxCell>
+        <!-- Handle → On-Demand (pinned horizontal) -->
+        <mxCell id="eright" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#66BB6A;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="handle-ref" target="on-demand" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

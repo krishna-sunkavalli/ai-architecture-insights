@@ -1,0 +1,157 @@
+<mxfile host="65bd71144e">
+    <diagram name="RAG Pipeline" id="rag-pipeline">
+        <mxGraphModel dx="1326" dy="998" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="860" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="RAG Pipeline — Reference Architecture" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="15" width="460" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=none;arcSize=4;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="60" width="1100" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane1-label" value="&lt;font color=&quot;#43A047&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;INGESTION&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#999&quot; style=&quot;font-size:12px;&quot;&gt;(Offline)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="68" width="200" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="doc-store" value="&lt;b&gt;Document Store&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Blob / SharePoint&lt;br&gt;/ Data Lake&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#90CAF9;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="110" width="150" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="chunker" value="&lt;b&gt;Chunker&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Fixed / Semantic&lt;br&gt;/ Hierarchical&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#E0E0E0;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="110" width="150" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="embedding" value="&lt;b&gt;Embedding&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Model&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#64B5F6;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="110" width="150" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="vector-store" value="&lt;b&gt;Vector Store&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;AI Search&lt;br&gt;/ Pinecone&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8BBD0;strokeColor=#F48FB1;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="110" width="150" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="knowledge-graph" value="&lt;b&gt;Knowledge&lt;br&gt;Graph&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;(Graph RAG)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFCC80;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="930" y="110" width="150" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="doc-store" target="chunker" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="chunker" target="embedding" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="embedding" target="vector-store" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="vector-store" target="knowledge-graph" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=none;arcSize=4;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="250" width="1100" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane2-label" value="&lt;font color=&quot;#1E88E5&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;QUERY&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#999&quot; style=&quot;font-size:12px;&quot;&gt;(Runtime)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="258" width="200" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-query" value="&lt;b&gt;User Query&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;+ History&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#EF9A9A;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="370" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="query-embed" value="&lt;b&gt;Query&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Embedding&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#90CAF9;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="370" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dense" value="&lt;b&gt;Dense&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Vector Search&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="300" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="sparse" value="&lt;b&gt;Sparse&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;BM25 Keyword&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="375" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="graph-search" value="&lt;b&gt;Graph&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Traversal&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFCC80;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="450" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="merge" value="&lt;b&gt;Merge&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;+ Dedup&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#E0E0E0;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="710" y="370" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="reranker" value="&lt;b&gt;Re-Ranker&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Cross-Encoder&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCEDC8;strokeColor=#AED581;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="930" y="367.5" width="150" height="65" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="user-query" target="query-embed" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="query-embed" target="dense" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="450" y="400"/>
+                            <mxPoint x="450" y="325"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e7" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="query-embed" target="sparse" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e8" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="query-embed" target="graph-search" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="450" y="400"/>
+                            <mxPoint x="450" y="475"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e9" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="dense" target="merge" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="670" y="325"/>
+                            <mxPoint x="670" y="400"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e10" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="sparse" target="merge" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e11" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="graph-search" target="merge" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="670" y="475"/>
+                            <mxPoint x="670" y="400"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e12" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="merge" target="reranker" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Dashed: Vector Store ↓ Dense (feeds retrieval) -->
+                <mxCell id="e-feed1" value="" style="endArrow=blockThin;endFill=1;dashed=1;strokeColor=#BDBDBD;strokeWidth=1;dashPattern=5 5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="vector-store" target="dense" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <!-- Dashed: Knowledge Graph ↓ Graph Traversal (feeds retrieval) -->
+                <mxCell id="e-feed2" value="" style="endArrow=blockThin;endFill=1;dashed=1;strokeColor=#BDBDBD;strokeWidth=1;dashPattern=5 5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="knowledge-graph" target="graph-search" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="feed-label" value="&lt;font style=&quot;font-size:10px;&quot; color=&quot;#999&quot;&gt;&lt;i&gt;feeds retrieval&lt;/i&gt;&lt;/font&gt;" style="text;html=1;align=right;verticalAlign=middle;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="980" y="228" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=none;arcSize=4;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="530" width="1100" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="lane3-label" value="&lt;font color=&quot;#E91E63&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;INFERENCE&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="538" width="200" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="ctx-window" value="&lt;b&gt;Context Window&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Assembly&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#90CAF9;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="590" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm" value="&lt;b&gt;LLM&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;Inference&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#E0E0E0;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="590" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="response" value="&lt;b&gt;Response&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#888&quot; style=&quot;font-size:11px;&quot;&gt;to User&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#FFF176;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="590" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e-r2c" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="reranker" target="ctx-window" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1005" y="560"/>
+                            <mxPoint x="440" y="560"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e13" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="ctx-window" target="llm" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e14" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="llm" target="response" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -1,0 +1,194 @@
+<mxfile host="app.diagrams.net" modified="2026-03-31T00:00:00.000Z" agent="draw.io" version="24.0.0">
+  <diagram name="Context Window Management" id="context-compression">
+    <mxGraphModel dx="1422" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="880" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Context Window Management — Reference Architecture" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="280" y="10" width="560" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ GROWING CONTEXT (Problem) ═══ -->
+        <mxCell id="input-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=none;arcSize=3;" vertex="1" parent="1">
+          <mxGeometry x="20" y="55" width="1100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="input-label" value="&lt;font color=&quot;#D32F2F&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;GROWING CONTEXT&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#888&quot; style=&quot;font-size:12px;&quot;&gt;(Problem)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="63" width="300" height="25" as="geometry" />
+        </mxCell>
+
+        <mxCell id="history" value="&lt;b&gt;Full Conversation&lt;br&gt;History&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#777&quot;&gt;Unbounded growth&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#EF9A9A;arcSize=12;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="50" y="97" width="155" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="tool-outs" value="&lt;b&gt;Tool Outputs&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#777&quot;&gt;Raw API / DB results&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#EF9A9A;arcSize=12;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="235" y="97" width="155" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="docs" value="&lt;b&gt;Retrieved Docs&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#777&quot;&gt;RAG chunks&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#EF9A9A;arcSize=12;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="420" y="97" width="145" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="problem-arrow" value="&lt;font style=&quot;font-size:12px;&quot; color=&quot;#D32F2F&quot;&gt;&lt;b&gt;⚠ Lost in the Middle&lt;/b&gt;&lt;br&gt;Attention degrades in&lt;br&gt;long contexts&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="660" y="92" width="185" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="cost-warn" value="&lt;font style=&quot;font-size:12px;&quot; color=&quot;#D32F2F&quot;&gt;&lt;b&gt;💰 Cost &amp;amp; Latency&lt;/b&gt;&lt;br&gt;Grows linearly (or worse)&lt;br&gt;with context size&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="880" y="92" width="200" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ MANAGEMENT TECHNIQUES (Solutions) ═══ -->
+        <mxCell id="tech-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=none;arcSize=3;" vertex="1" parent="1">
+          <mxGeometry x="20" y="195" width="1100" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-label" value="&lt;font color=&quot;#2E7D32&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;MANAGEMENT TECHNIQUES&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#888&quot; style=&quot;font-size:12px;&quot;&gt;(Solutions)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="203" width="350" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Summarization -->
+        <mxCell id="summarize-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="45" y="240" width="240" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="summarize-title" value="&lt;b&gt;Summarization&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#2E7D32;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="75" y="248" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="summarize-desc" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;Lightweight LLM call compresses&lt;br&gt;older turns into structured summary.&lt;br&gt;Used at agent-agent handoffs.&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="275" width="215" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Context Pruning -->
+        <mxCell id="prune-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#90CAF9;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="305" y="240" width="240" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="prune-title" value="&lt;b&gt;Context Pruning&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#1565C0;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="335" y="248" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="prune-desc" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;Hard-coded heuristics remove&lt;br&gt;stale tool outputs, deprecated state,&lt;br&gt;low-relevance history.&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="320" y="275" width="215" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Sliding Window -->
+        <mxCell id="slide-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFCC80;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="565" y="240" width="240" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="slide-title" value="&lt;b&gt;Sliding Window&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#E65100;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="595" y="248" width="180" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="slide-desc" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;Fixed-length rolling history.&lt;br&gt;Simplest to implement.&lt;br&gt;Predictable cost &amp;amp; latency.&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="580" y="275" width="215" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- KV-Cache -->
+        <mxCell id="kv-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1BEE7;strokeColor=#CE93D8;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="825" y="240" width="240" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="kv-title" value="&lt;b&gt;KV-Cache Optimization&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#7B1FA2;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="845" y="248" width="200" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="kv-desc" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;Cache key-value representations&lt;br&gt;of static context (system prompts).&lt;br&gt;Maximize cache hit rates.&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="840" y="275" width="215" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ── Input → Technique arrows (pinned) ── -->
+        <!-- History → Summarization -->
+        <mxCell id="ed1" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="history" target="summarize-box" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Tool Outputs → Pruning -->
+        <mxCell id="ed2" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="tool-outs" target="prune-box" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Docs → Sliding Window -->
+        <mxCell id="ed3" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" edge="1" source="docs" target="slide-box" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ═══ ASSEMBLED CONTEXT WINDOW (Token Budget) ═══ -->
+        <mxCell id="asm-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=none;arcSize=3;" vertex="1" parent="1">
+          <mxGeometry x="20" y="405" width="1100" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="asm-label" value="&lt;font color=&quot;#1565C0&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;ASSEMBLED CONTEXT WINDOW&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#888&quot; style=&quot;font-size:12px;&quot;&gt;(Token Budget)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="413" width="380" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Token budget stacked segments -->
+        <mxCell id="seg-sys" value="&lt;b&gt;System Instructions&lt;/b&gt;  &lt;font style=&quot;font-size:10px;&quot; color=&quot;#777&quot;&gt;Reserved · Static&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#64B5F6;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="860" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="seg-tools" value="&lt;b&gt;Tool Definitions&lt;/b&gt;  &lt;font style=&quot;font-size:10px;&quot; color=&quot;#777&quot;&gt;Semi-static · Cached via KV&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#BA68C8;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="100" y="488" width="860" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="seg-history" value="&lt;b&gt;Active History&lt;/b&gt;  &lt;font style=&quot;font-size:10px;&quot; color=&quot;#777&quot;&gt;Managed · Summarized / Pruned&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="100" y="526" width="860" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="seg-rag" value="&lt;b&gt;Retrieved Context (RAG)&lt;/b&gt;  &lt;font style=&quot;font-size:10px;&quot; color=&quot;#777&quot;&gt;Dynamic · Re-ranked chunks&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFCC80;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="100" y="564" width="860" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="seg-headroom" value="&lt;b&gt;Token Headroom&lt;/b&gt;  &lt;font style=&quot;font-size:10px;&quot; color=&quot;#777&quot;&gt;Reserved for model output&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#FFF176;fontSize=12;fontFamily=Segoe UI;" vertex="1" parent="1">
+          <mxGeometry x="100" y="602" width="860" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Curly bracket -->
+        <mxCell id="bracket" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;flipH=1;size=0.5;strokeColor=#9E9E9E;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="970" y="450" width="25" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="budget-label" value="&lt;font style=&quot;font-size:13px;&quot; color=&quot;#555&quot;&gt;&lt;b&gt;Token&lt;br&gt;Budget&lt;/b&gt;&lt;br&gt;(e.g. 128K)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1005" y="515" width="100" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ── Technique → Assembled Context arrows (pinned, dashed) ── -->
+        <!-- Summarization → Active History -->
+        <mxCell id="ea-sum" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.15;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#66BB6A;strokeWidth=1;endArrow=blockThin;endFill=1;dashed=1;dashPattern=5 5;" edge="1" source="summarize-box" target="seg-history" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="165" y="395" />
+              <mxPoint x="229" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Pruning → Active History -->
+        <mxCell id="ea-prune" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.35;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#42A5F5;strokeWidth=1;endArrow=blockThin;endFill=1;dashed=1;dashPattern=5 5;" edge="1" source="prune-box" target="seg-history" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="425" y="395" />
+              <mxPoint x="401" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- Sliding Window → Retrieved Context (RAG) -->
+        <mxCell id="ea-slide" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.6;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#FF9800;strokeWidth=1;endArrow=blockThin;endFill=1;dashed=1;dashPattern=5 5;" edge="1" source="slide-box" target="seg-rag" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="685" y="395" />
+              <mxPoint x="616" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- KV-Cache → Tool Definitions -->
+        <mxCell id="ea-kv" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.85;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#AB47BC;strokeWidth=1;endArrow=blockThin;endFill=1;dashed=1;dashPattern=5 5;" edge="1" source="kv-box" target="seg-tools" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="945" y="395" />
+              <mxPoint x="831" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Color-coded annotations on left of stacked segments -->
+        <mxCell id="ann-sys" value="&lt;font style=&quot;font-size:10px;&quot; color=&quot;#1565C0&quot;&gt;▌&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="75" y="457" width="20" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ann-tools" value="&lt;font style=&quot;font-size:10px;&quot; color=&quot;#7B1FA2&quot;&gt;▌&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="75" y="495" width="20" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ann-hist" value="&lt;font style=&quot;font-size:10px;&quot; color=&quot;#2E7D32&quot;&gt;▌&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="75" y="533" width="20" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ann-rag" value="&lt;font style=&quot;font-size:10px;&quot; color=&quot;#E65100&quot;&gt;▌&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="75" y="571" width="20" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="ann-head" value="&lt;font style=&quot;font-size:10px;&quot; color=&quot;#F9A825&quot;&gt;▌&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="75" y="609" width="20" height="24" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

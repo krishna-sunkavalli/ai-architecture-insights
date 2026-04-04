@@ -1,0 +1,206 @@
+<mxfile host="app.diagrams.net" modified="2026-04-01T00:00:00.000Z" agent="draw.io" version="24.0.0">
+    <diagram name="Multi-Agent Fan-Out Fan-In" id="multi-agent-fanout">
+        <mxGraphModel dx="1422" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="960" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- Title -->
+                <mxCell id="title" value="Multi-Agent Fan-Out / Fan-In — Reference Architecture" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="310" y="10" width="560" height="35" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ USER REQUEST LANE ═══ -->
+                <mxCell id="user-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=none;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="55" width="1150" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-label" value="&lt;font color=&quot;#E65100&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;USER REQUEST&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="63" width="200" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="user-req" value="&lt;b&gt;User Request&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#777&quot;&gt;Complex multi-step task&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#EF9A9A;arcSize=12;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="90" width="200" height="50" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ ORCHESTRATION LANE ═══ -->
+                <mxCell id="orch-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=none;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="175" width="1150" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="orch-label" value="&lt;font color=&quot;#1565C0&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;ORCHESTRATION&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#888&quot; style=&quot;font-size:12px;&quot;&gt;(Decompose)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="183" width="300" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="orchestrator" value="&lt;b&gt;Orchestrator Agent&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#777&quot;&gt;Task decomposition&lt;br&gt;Context scoping&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#64B5F6;arcSize=12;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="213" width="240" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- User → Orchestrator (pinned) -->
+                <mxCell id="eu1" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="user-req" target="orchestrator" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ SPECIALIST AGENTS LANE ═══ -->
+                <mxCell id="spec-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=none;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="310" width="1150" height="295" as="geometry"/>
+                </mxCell>
+                <mxCell id="spec-label" value="&lt;font color=&quot;#7B1FA2&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;SPECIALIST AGENTS&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#888&quot; style=&quot;font-size:12px;&quot;&gt;(Fan-Out, Parallel Execution)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="318" width="420" height="25" as="geometry"/>
+                </mxCell>
+
+                <!-- Agent A: Research -->
+                <mxCell id="agent-a-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#A5D6A7;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="45" y="355" width="340" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-a-title" value="&lt;b&gt;Agent A: Research&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#2E7D32;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="363" width="230" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-a-scope" value="&lt;font style=&quot;font-size:12px;&quot;&gt;&lt;b&gt;Scoped Context&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;• Query + relevant docs only&lt;br&gt;• No full conversation history&lt;br&gt;• Minimal tool definitions&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C8E6C9;arcSize=10;fontFamily=Segoe UI;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="65" y="393" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-a-result" value="&lt;b&gt;Structured Result A&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#81C784;arcSize=12;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="500" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="ea-ar" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#66BB6A;strokeWidth=1.5;endArrow=blockThin;endFill=1;" parent="1" source="agent-a-scope" target="agent-a-result" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Agent B: Analysis -->
+                <mxCell id="agent-b-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#90CAF9;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="415" y="355" width="340" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-b-title" value="&lt;b&gt;Agent B: Analysis&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#1565C0;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="363" width="230" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-b-scope" value="&lt;font style=&quot;font-size:12px;&quot;&gt;&lt;b&gt;Scoped Context&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;• Data subset + analysis prompt&lt;br&gt;• Task-specific tool access&lt;br&gt;• Compressed prior context&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#BBDEFB;arcSize=10;fontFamily=Segoe UI;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="435" y="393" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-b-result" value="&lt;b&gt;Structured Result B&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#64B5F6;arcSize=12;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="500" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="eb-br" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#42A5F5;strokeWidth=1.5;endArrow=blockThin;endFill=1;" parent="1" source="agent-b-scope" target="agent-b-result" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- Agent C: Validation -->
+                <mxCell id="agent-c-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#FFCC80;arcSize=8;" parent="1" vertex="1">
+                    <mxGeometry x="785" y="355" width="340" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-c-title" value="&lt;b&gt;Agent C: Validation&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;fontSize=13;fontColor=#E65100;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="363" width="230" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-c-scope" value="&lt;font style=&quot;font-size:12px;&quot;&gt;&lt;b&gt;Scoped Context&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;• Compliance rules only&lt;br&gt;• Validation schemas&lt;br&gt;• No research history&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFE0B2;arcSize=10;fontFamily=Segoe UI;align=left;spacingLeft=10;" parent="1" vertex="1">
+                    <mxGeometry x="805" y="393" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="agent-c-result" value="&lt;b&gt;Structured Result C&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCC80;strokeColor=#FFB74D;arcSize=12;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="500" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="ec-cr" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#FFA726;strokeWidth=1.5;endArrow=blockThin;endFill=1;" parent="1" source="agent-c-scope" target="agent-c-result" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- ── Orchestrator → Agent fan-out arrows (pinned with waypoints) ── -->
+                <mxCell id="efan-a" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="orchestrator" target="agent-a-bg" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="590" y="300"/>
+                            <mxPoint x="215" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="efan-b" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="orchestrator" target="agent-b-bg" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="efan-c" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="orchestrator" target="agent-c-bg" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="590" y="300"/>
+                            <mxPoint x="955" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fanout-label" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#7B1FA2&quot;&gt;&lt;b&gt;Fan-Out&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="292" width="60" height="18" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ SYNTHESIS LANE ═══ -->
+                <mxCell id="synth-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=none;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="625" width="1150" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="synth-label" value="&lt;font color=&quot;#2E7D32&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;SYNTHESIS&lt;/b&gt;&lt;/font&gt;  &lt;font color=&quot;#888&quot; style=&quot;font-size:12px;&quot;&gt;(Fan-In)&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="633" width="250" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="synthesizer" value="&lt;b&gt;Orchestrator&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#777&quot;&gt;Synthesize results&lt;br&gt;Structured handoff summaries&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#64B5F6;arcSize=12;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="663" width="240" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- ── Agent results → Synthesizer fan-in arrows (pinned with waypoints) ── -->
+                <mxCell id="efin-a" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#66BB6A;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="agent-a-result" target="synthesizer" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="215" y="610"/>
+                            <mxPoint x="590" y="610"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="efin-b" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#42A5F5;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="agent-b-result" target="synthesizer" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="efin-c" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#FFA726;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="agent-c-result" target="synthesizer" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="955" y="610"/>
+                            <mxPoint x="590" y="610"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="fanin-label" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#2E7D32&quot;&gt;&lt;b&gt;Fan-In&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="602" width="60" height="18" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ RESPONSE LANE ═══ -->
+                <mxCell id="resp-lane" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=none;arcSize=3;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="760" width="1150" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="resp-label" value="&lt;font color=&quot;#F9A825&quot; style=&quot;font-size:14px;&quot;&gt;&lt;b&gt;RESPONSE&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="768" width="200" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="final-resp" value="&lt;b&gt;Final Response&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px;&quot; color=&quot;#777&quot;&gt;Coherent synthesized output&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#FFF176;arcSize=12;fontSize=12;fontFamily=Segoe UI;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="798" width="200" height="50" as="geometry"/>
+                </mxCell>
+
+                <!-- Synthesizer → Final Response (pinned) -->
+                <mxCell id="efinal" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;rounded=1;strokeColor=#9E9E9E;strokeWidth=2;endArrow=blockThin;endFill=1;" parent="1" source="synthesizer" target="final-resp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- ═══ DESIGN PRINCIPLES SIDEBAR ═══ -->
+                <mxCell id="principles-bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#CE93D8;arcSize=6;dashed=1;dashPattern=5 3;" parent="1" vertex="1">
+                    <mxGeometry x="1200" y="55" width="185" height="650" as="geometry"/>
+                </mxCell>
+                <mxCell id="principles-title" value="&lt;font color=&quot;#7B1FA2&quot; style=&quot;font-size:13px;&quot;&gt;&lt;b&gt;Design Principles&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1210" y="65" width="165" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="p1" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;&lt;b&gt;1. Scope by Default&lt;/b&gt;&lt;br&gt;Minimum context per agent&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1215" y="100" width="160" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="p2" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;&lt;b&gt;2. Structured Handoffs&lt;/b&gt;&lt;br&gt;Compressed summaries, not raw chat&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1215" y="150" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p3" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;&lt;b&gt;3. Fan-Out / Fan-In&lt;/b&gt;&lt;br&gt;Parallel specialists, synthesized output&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1215" y="208" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p4" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;&lt;b&gt;4. Explicit State Mgmt&lt;/b&gt;&lt;br&gt;Context as API contract: version, validate, monitor&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1215" y="266" width="160" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p5" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;&lt;b&gt;5. Tool Schema Budgeting&lt;/b&gt;&lt;br&gt;20-50 tool schemas = 3-8K tokens. Scope tools per agent.&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1215" y="329" width="160" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="p6" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#555&quot;&gt;&lt;b&gt;6. PII / Data Isolation&lt;/b&gt;&lt;br&gt;Agent PII scope must not leak across boundaries without audit&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1215" y="392" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="p7" value="&lt;font style=&quot;font-size:11px;&quot; color=&quot;#D32F2F&quot;&gt;&lt;b&gt;⚠ Observability Required&lt;/b&gt;&lt;br&gt;Distributed tracing, structured logging, evals at each boundary&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontFamily=Segoe UI;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="1215" y="460" width="160" height="70" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
