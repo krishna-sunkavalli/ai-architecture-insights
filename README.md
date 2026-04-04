@@ -11,3 +11,8 @@ Krishna Sunkavalli — Sr. Solutions Engineer, Cloud & AI Platforms, Microsoft
 ## Articles
 
 - [Context Engineering: The Architecture Discipline Behind Production AI Systems](articles/context-engineering/context-engineering-production-ai.md)
+
+---
+
+Licensed under [CC BY 4.0](LICENSE). Content may be shared or adapted with attribution.  
+Views expressed are my own and do not represent the views of Microsoft.
