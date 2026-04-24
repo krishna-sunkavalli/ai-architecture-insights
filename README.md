@@ -13,6 +13,7 @@ Krishna Sunkavalli — Sr. Solutions Engineer, Cloud & AI Platforms, Microsoft
 - [Context Engineering: The Architecture Discipline Behind Production AI Systems](articles/context-engineering/context-engineering-production-ai.md)
 - [Token Exhaustion Is a Context Architecture Problem](articles/context-engineering/token-exhaustion-context-architecture.md)
 - [Benchmark Scores Don't Deploy: The Three-Axis LLM Selection Problem](articles/ai-architecture/llm-selection-three-axis.md)
+- [The API Gateway Is the Control Plane for Enterprise AI](articles/ai-architecture/api-management-enterprise-ai-platform.md)
 - [AI Has Two Security Problems and Most Organizations Are Ignoring One of Them](articles/responsible-ai/ai-security-emerging-threats.md)
 
 ---
