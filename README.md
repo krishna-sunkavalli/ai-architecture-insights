@@ -14,6 +14,7 @@ Krishna Sunkavalli — Sr. Solutions Engineer, Cloud & AI Platforms, Microsoft
 - [Token Exhaustion Is a Context Architecture Problem](articles/context-engineering/token-exhaustion-context-architecture.md)
 - [Benchmark Scores Don't Deploy: The Three-Axis LLM Selection Problem](articles/ai-architecture/llm-selection-three-axis.md)
 - [The API Gateway Is the Control Plane for Enterprise AI](articles/ai-architecture/api-management-enterprise-ai-platform.md)
+- [GitHub Copilot UBB: What Is Burning Your Credits and How to Stop It](articles/ai-architecture/github-copilot-ubb-credit-burn-controls.md)
 - [AI Has Two Security Problems and Most Organizations Are Ignoring One of Them](articles/responsible-ai/ai-security-emerging-threats.md)
 
 ---
