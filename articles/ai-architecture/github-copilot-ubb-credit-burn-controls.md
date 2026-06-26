@@ -15,44 +15,101 @@ image: assets/images/github-copilot-ubb-credit-burn-controls-social.png
 
 # GitHub Copilot UBB: What Is Burning Your Credits and How to Stop It
 
-Most of the panic around GitHub Copilot usage-based billing is aimed at the wrong target. The risk is real, but the root cause is not the pricing model. It is operating discipline. Teams that treat model selection, session scope, and budget controls as engineering decisions will run this efficiently. Teams that do not will burn credits fast.
+- Most Copilot UBB panic is misdiagnosed.
+- The pricing model is not the primary problem.
+- The primary problem is operating discipline: model choice, session scope, and budget configuration.
+- Teams that operationalize these controls run efficiently. Teams that do not burn credits fast.
 
 ## The Behaviors That Inflate Spend
 
-Using frontier models for routine work is the fastest way to overspend. Teams pick the most capable model for every prompt, including low-complexity tasks, because it feels safer. It is not safer. It is expensive. If one model costs about five times more per token than another, and it also produces longer responses, the gap compounds quickly. A small number of heavy frontier-model sessions can outspend a full day of lightweight usage.
+### 1) Frontier models on routine tasks
 
-The issue is not using high-end models. The issue is using them for work that does not need them.
+- Fastest overspend path: defaulting to the strongest model for every prompt.
+- Common pattern: low-complexity tasks routed to high-cost models "for safety."
+- Typical cost spread can be large (for example, roughly 5x per token across tiers).
+- Higher-tier models also tend to produce longer outputs, compounding cost.
+- Real-world effect: a few heavy sessions can outspend a full day of lightweight usage.
 
-Running broad agent sessions without scope is the next major failure mode. Under usage-based billing, input, output, and cached tokens are all metered. Context is now a direct cost variable. A long-running agent session with full-repo context and many turns can consume a meaningful share of monthly credits before midday.
+### 2) Broad agent sessions without scope
 
-Teams still thinking in request count are using the wrong lens. Spend is driven by compute intensity per interaction, which is primarily model choice plus context size. Both are controllable.
+- UBB meters input, output, and cached tokens.
+- Context is now a direct cost variable.
+- Full-repo context plus long multi-turn sessions can consume monthly credits quickly.
+- Spend is a function of model choice and context size, both controllable.
 
-Two developers can send the same number of requests and generate very different costs. The difference is model mix and context footprint. If your reporting view is request volume, you are blind to the real driver. You need credit consumption by user, by model, and by team.
+### 3) Tracking request count instead of credit burn
+
+- Equal request counts can hide very different costs.
+- Model mix and context footprint create the gap.
+- Request volume is a weak leading indicator.
+- Track spend by user, model, and team to get actionable visibility.
 
 ## What Good Looks Like in Practice
 
-Start with what does not consume credits. Code completions and next-edit suggestions remain unlimited on paid plans and do not consume credits. The meter runs on Chat, CLI, and agentic workflows. That changes the operating model. You are not trying to suppress all Copilot usage. You are managing a specific set of billable behaviors that can be coached and standardized.
+### 1) Start with what is not billed
 
-Model matching should be intentional. Treat this like staffing. You do not put your most expensive specialist on routine execution work. Lightweight models are ideal for high-volume tasks such as boilerplate, documentation, simple refactors, and known-topic Q and A. Frontier models earn their cost on multi-file architecture analysis, complex debugging, and cross-codebase reasoning after cheaper options fail.
+- Code completions and next-edit suggestions remain unlimited on paid plans.
+- These interactions do not consume credits.
+- Metered channels are Chat, CLI, and agentic sessions.
+- Objective is not reducing all Copilot usage. Objective is controlling billable behaviors.
 
-Make lightweight models the default. Escalate intentionally. This is the highest-return cost lever most teams have.
+### 2) Match model to task complexity
 
-Constrain context before you run. Before launching an agent task, define the minimum useful scope. A question about one function does not need full-repo context. A module-specific bug does not need unrelated files in memory. Smaller, focused steps usually improve answer quality and reduce rework. They also limit waste when the chain starts in the wrong direction.
+- Default to lightweight models for high-volume, low-complexity work.
+- Use frontier models for work that genuinely requires deeper reasoning.
+- Lightweight tier examples: boilerplate, docs, simple refactors, known-topic Q and A.
+- Frontier tier examples: multi-file architecture, hard debugging, cross-codebase reasoning.
+- Highest-return lever: lightweight default with explicit escalation criteria.
 
-Prompt quality also has direct cost impact. Every regeneration is a billed interaction. Vague prompts trigger iterative retries, and each retry compounds spend, especially on frontier models with large context.
+### 3) Constrain context before execution
 
-Run the billing simulator before the promotional window closes. Use GitHub billing preview tooling with real usage data before pricing windows change. Teams that do this understand their burn profile early. Teams that skip it discover their cost model through the invoice. If your organization was on Copilot before June 1, 2026, use the temporary higher included-credit period to establish a baseline. Do not wait for the lower standard pool to force the lesson.
+- Define the minimum useful scope before starting an agent task.
+- Function-level questions do not need repository-wide context.
+- Module-local debugging does not need unrelated files.
+- Smaller scoped runs improve quality and reduce wasted turns.
+
+### 4) Optimize prompt quality for first-pass success
+
+- Each regeneration is billable.
+- Vague prompts increase retries and cost.
+- Better first prompt quality improves both output quality and cost efficiency.
+
+### 5) Use the simulator during the transition window
+
+- Run billing preview with real usage data before pool changes take effect.
+- Establish baseline burn now, not after an invoice surprise.
+- If your org was on Copilot before June 1, 2026, use the higher temporary pool period for baseline calibration.
 
 ## The Guardrails That Actually Work
 
-Alert-only limits are not guardrails. Spending limits are often configured as notifications, not hard stops. If you do not explicitly enable stop usage when budget limit is reached, charges keep accruing after the alert. This single setting is the most important operational detail in the billing transition. Missing it turns governance into observability only.
+### 1) Convert alerts into enforcement
 
-User-level budgets are different and enforce a hard stop. A zero-dollar user budget blocks that user immediately.
+- Default spending limits are often notification-only.
+- Notification-only limits do not stop charges.
+- Explicitly enable stop usage when budget limit is reached for hard enforcement.
 
-Apply controls in sequence. Start with a universal user-level budget across all licensed users. This prevents a small set of heavy users from draining the shared pool. Set that budget above the per-seat included value so the organization still benefits from pooling. Then identify legitimate power users and apply targeted overrides. Finally, set an enterprise spending limit and enable hard stop.
+### 2) Understand budget behavior by scope
 
-Cost centers create team-level accountability. They let teams see consumption while there is still time to act. If a team is near budget by day 20, they can switch models, defer heavy agent runs, or request a larger allocation with evidence. Without cost centers, accountability arrives at invoice time, which is too late to correct behavior in-cycle.
+- User-level budgets enforce hard stop behavior.
+- A user-level budget of $0 blocks that user immediately.
+- Enterprise and cost-center limits must be configured to stop usage explicitly.
+
+### 3) Apply controls in sequence
+
+- Set a universal user-level budget for all licensed users.
+- Keep it above per-seat included value to preserve pooling economics.
+- Add overrides for legitimate power users.
+- Set enterprise spending limit with hard stop enabled.
+
+### 4) Add cost centers for accountability
+
+- Cost centers expose team-level burn before month-end.
+- Teams can adapt in-cycle: model mix changes, defer heavy runs, or request reallocation.
+- Without cost centers, accountability arrives only at invoice time.
 
 ## This Is an Operating Discipline, Not a Procurement Problem
 
-The teams that will handle Copilot UBB well will treat it as platform operations, not procurement. Model selection, context scope, prompt quality, and hard-stop budget settings are all controllable inputs. The meter is transparent now. Engineering practice needs to be equally transparent.
+- Copilot UBB is a platform-operations problem.
+- Core control variables are model selection, context scope, prompt quality, and hard-stop budget settings.
+- The meter is transparent.
+- Engineering operating discipline must be equally transparent.
